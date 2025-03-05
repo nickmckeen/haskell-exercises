@@ -83,7 +83,7 @@ myGcd a b = if b > a then myGcd a (b-a) else myGcd (a-b) b
 -- * you can compute the length of a string with the length function
 
 leftpad :: String -> Int -> String
-leftpad str l = if (length str) >= l then str else leftpad(" " ++ str) l
+leftpad str l = if (length str < l) then (" "++leftpad str l) else str
 
 ------------------------------------------------------------------------------
 -- Ex 5: let's make a countdown for a rocket! Given a number, you
@@ -99,14 +99,7 @@ leftpad str l = if (length str) >= l then str else leftpad(" " ++ str) l
 -- * you'll probably need a recursive helper function
 
 countdown :: Integer -> String
-countdown n = stringBuilder "Ready! " n
-
-stringBuilder :: String -> Integer -> String
-stringBuilder str n
- | n == 0 = str ++ "Liftoff!"
- | otherwise = stringBuilder (str++(show n)++"... ") (n-1)
- 
-
+countdown = todo
 
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
@@ -124,12 +117,7 @@ stringBuilder str n
 -- Hint: remember the mod function!
 
 smallestDivisor :: Integer -> Integer
-smallestDivisor n = smallestDivisor' n 2
-
-smallestDivisor' :: Integer -> Integer -> Integer
-smallestDivisor' n k
-  | (mod n k) == 0 = k
-  | otherwise = smallestDivisor' n (k+1)
+smallestDivisor = todo
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
@@ -138,10 +126,7 @@ smallestDivisor' n k
 -- Ps. 0 and 1 are not prime numbers
 
 isPrime :: Integer -> Bool
-isPrime n 
- | n == 0 = False
- | n == 1 = False
- | otherwise = n == smallestDivisor n  
+isPrime = todo
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function biggestPrimeAtMost that returns the
@@ -156,6 +141,4 @@ isPrime n
 --   biggestPrimeAtMost 10 ==> 7
 
 biggestPrimeAtMost :: Integer -> Integer
-biggestPrimeAtMost n
- | isPrime n = n
- | otherwise = biggestPrimeAtMost(n-1)
+biggestPrimeAtMost = todo
